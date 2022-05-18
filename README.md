@@ -68,11 +68,9 @@
   </ol>
 </details>
 
-<!-- ABOUT THE PROJECT -->
-
 ## About The Project
 
-I saw that Zod Prisma doesn't work well with `nestjs-zod` and its author has been inactive for a long time - so I created this fork to fix the problems that I suffered from.
+Zod Prisma doesn't work well with `nestjs-zod` and its author has been inactive for a long time - so I created this fork to fix the problems that I suffered from.
 
 To work better with `nestjs-zod`, this library provides a little different API for Prisma rich comments directives.
 
@@ -80,15 +78,11 @@ You can use `@z.string().etc()` for specifying different `nestjs-zod/z` schemas,
 
 And we still support the JSDoc comments.
 
-<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
-
 ### Built With
 
 -   [dts-cli](https://github.com/weiran-zsd/dts-cli)
 -   [Zod](https://github.com/colinhacks/zod)
 -   [Based on this gist](https://gist.github.com/deckchairlabs/8a11c33311c01273deec7e739417dbc9)
-
-<!-- GETTING STARTED -->
 
 ## Getting Started
 
