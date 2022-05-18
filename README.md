@@ -10,7 +10,7 @@
 <br/>
 <p align="center">
   <a href="https://github.com/nestjs-zod-prisma/actions?query=branch%3Amain">
-    <img src="https://github.com/nestjs-zod-prisma/actions/workflows/test-and-build.yml/badge.svg?event=push&branch=main" alt="nestjs-zod CI Status" />
+    <img src="https://github.com/nestjs-zod-prisma/actions/workflows/test-and-build.yml/badge.svg?event=push&branch=main" alt="nestjs-zod-prisma CI Status" />
   </a>
   <a href="https://opensource.org/licenses/MIT" rel="nofollow">
     <img src="https://img.shields.io/github/license/nestjs-zod-prisma" alt="License">
