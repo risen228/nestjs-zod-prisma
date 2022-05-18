@@ -18,6 +18,13 @@
   </p>
 </p>
 
+## Ecosystem
+
+| Package | About |
+| :-- | :-- |
+| [nestjs-zod](https://github.com/risenforces/nestjs-zod) | A tools for integrating Zod into your NestJS application |
+| [nestjs-zod-prisma](https://github.com/risenforces/nestjs-zod-prisma) | Generate Zod schemas from your Prisma schema |
+
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
@@ -55,13 +62,6 @@
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
-
-## Ecosystem
-
-| Package | About |
-| :-- | :-- |
-| [nestjs-zod](https://github.com/risenforces/nestjs-zod) | A tools for integrating Zod into your NestJS application |
-| [nestjs-zod-prisma](https://github.com/risenforces/nestjs-zod-prisma) | Generate Zod schemas from your Prisma schema |
 
 <!-- ABOUT THE PROJECT -->
 
