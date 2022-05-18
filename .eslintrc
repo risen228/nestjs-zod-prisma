@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "@eslint-kit/patch",
+    "@eslint-kit/base",
+    "@eslint-kit/typescript",
+    "@eslint-kit/node",
+    "@eslint-kit/prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+	"rules": {
+		"@typescript-eslint/no-non-null-assertion": "off"
+	},
+	"overrides": [
+		{
+			"files": ["src/test/**/*.ts"],
+			"rules": {
+				"import/no-cycle": "off"
+			}
+		}
+	]
+}

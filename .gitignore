@@ -1,0 +1,8 @@
+*.log
+.DS_Store
+node_modules
+dist
+examples/prisma/zod
+/src/test/functional/*/actual
+/src/test/functional/*/prisma/.client/*
+!/src/test/functional/*/prisma/.client/index.ts
