@@ -56,6 +56,13 @@
   </ol>
 </details>
 
+## Ecosystem
+
+| Package | About |
+| :-- | :-- |
+| [nestjs-zod](https://github.com/risenforces/nestjs-zod) | A tools for integrating Zod into your NestJS application |
+| [nestjs-zod-prisma](https://github.com/risenforces/nestjs-zod-prisma) | Generate Zod schemas from your Prisma schema |
+
 <!-- ABOUT THE PROJECT -->
 
 ## About The Project
