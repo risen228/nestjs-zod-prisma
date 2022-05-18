@@ -9,17 +9,17 @@
 </p>
 <br/>
 <p align="center">
-  <a href="https://github.com/nestjs-zod-prisma/actions?query=branch%3Amain">
-    <img src="https://github.com/nestjs-zod-prisma/actions/workflows/test-and-build.yml/badge.svg?event=push&branch=main" alt="nestjs-zod-prisma CI Status" />
+  <a href="https://github.com/risenforces/nestjs-zod-prisma/actions?query=branch%3Amain">
+    <img src="https://github.com/risenforces/nestjs-zod-prisma/actions/workflows/test-and-build.yml/badge.svg?event=push&branch=main" alt="nestjs-zod CI Status" />
   </a>
   <a href="https://opensource.org/licenses/MIT" rel="nofollow">
-    <img src="https://img.shields.io/github/license/nestjs-zod-prisma" alt="License">
+    <img src="https://img.shields.io/github/license/risenforces/nestjs-zod-prisma" alt="License">
   </a>
   <a href="https://www.npmjs.com/package/nestjs-zod-prisma" rel="nofollow">
     <img src="https://img.shields.io/npm/dw/nestjs-zod-prisma.svg" alt="npm">
   </a>
   <a href="https://www.npmjs.com/package/nestjs-zod-prisma" rel="nofollow">
-    <img src="https://img.shields.io/github/stars/nestjs-zod-prisma" alt="stars">
+    <img src="https://img.shields.io/github/stars/risenforces/nestjs-zod-prisma" alt="stars">
   </a>
 </p>
 
