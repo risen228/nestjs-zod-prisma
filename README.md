@@ -1,21 +1,26 @@
-<br />
 <p align="center">
   <a href="https://github.com/risenforces/nestjs-zod-prisma">
     <img src="/logo.svg" alt="NestJS Zod Prisma" width="120" height="120">
   </a>
-  <h3 align="center">Zod Prisma (for nestjs-zod)</h3>
+  <h1></h1>
   <p align="center">
-    The fork of Zod Prisma generator for using with nestjs-zod.
-    <br />
-    <a href="https://github.com/risenforces/nestjs-zod-prisma"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/risenforces/nestjs-zod-prisma/blob/main/src/test/functional">View Demo</a>
-    ·
-    <a href="https://github.com/risenforces/nestjs-zod-prisma/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/risenforces/nestjs-zod-prisma/issues">Request Feature</a>
+    ✨ The fork of Zod Prisma generator for using with nestjs-zod ✨
   </p>
+</p>
+<br/>
+<p align="center">
+  <a href="https://github.com/nestjs-zod-prisma/actions?query=branch%3Amain">
+    <img src="https://github.com/nestjs-zod-prisma/actions/workflows/test-and-build.yml/badge.svg?event=push&branch=main" alt="nestjs-zod CI Status" />
+  </a>
+  <a href="https://opensource.org/licenses/MIT" rel="nofollow">
+    <img src="https://img.shields.io/github/license/nestjs-zod-prisma" alt="License">
+  </a>
+  <a href="https://www.npmjs.com/package/nestjs-zod-prisma" rel="nofollow">
+    <img src="https://img.shields.io/npm/dw/nestjs-zod-prisma.svg" alt="npm">
+  </a>
+  <a href="https://www.npmjs.com/package/nestjs-zod-prisma" rel="nofollow">
+    <img src="https://img.shields.io/github/stars/nestjs-zod-prisma" alt="stars">
+  </a>
 </p>
 
 ## Ecosystem
