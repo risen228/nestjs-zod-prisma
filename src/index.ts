@@ -10,8 +10,8 @@ generatorHandler({
   onManifest() {
     return {
       version,
-      prettyName: 'Zod Schemas',
-      defaultOutput: 'zod',
+      prettyName: 'NestJS Zod Schemas',
+      defaultOutput: './src/zod',
     }
   },
   onGenerate(options) {

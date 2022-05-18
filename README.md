@@ -60,8 +60,13 @@
 
 ## About The Project
 
-I got tired of having to manually create Zod schemas for my Prisma models and of updating them everytime I made schema changes.
-This provides a way of automatically generating them with your prisma
+I saw that Zod Prisma doesn't work well with `nestjs-zod` and its author has been inactive for a long time - so I created this fork to fix the problems that I suffered from.
+
+To work better with `nestjs-zod`, this library provides a little different API for Prisma rich comments directives.
+
+You can use `@z.string().etc()` for specifying different `nestjs-zod/z` schemas, `@z&.something().etc()` for applying a new methods on the schema and `@z.from(imports.MyPasswordSchema)` for using your own schemas.
+
+And we still support the JSDoc comments.
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
@@ -98,7 +103,7 @@ To get a local copy up and running follow these simple steps.
     ```prisma
     generator zod {
       provider                 = "nestjs-zod-prisma"
-      output                   = "./zod" // (default) the directory where generated zod schemas will be saved
+      output                   = "./src/zod" // (default) the directory where generated zod schemas will be saved
 
       relationModel            = true // (default) Create and export both plain and related models.
       // relationModel         = "default" // Do not export model without relations.
@@ -209,8 +214,8 @@ nestjs-zod-prisma enables you to reuse these by importing them via a config opti
 ```prisma
 generator zod {
   provider      = "nestjs-zod-prisma"
-  output        = "./zod"
-  imports 		  = "../src/zod-schemas"
+  output        = "./src/zod"
+  imports 		  = "../zod-schemas"
 }
 
 model User {
