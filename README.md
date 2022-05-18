@@ -92,7 +92,7 @@ To get a local copy up and running follow these simple steps.
 ### Prerequisites
 
 - `prisma` - `^3.0.0`
-- `nestjs-zod` - `^0.4.3`
+- `nestjs-zod` - `^0.4.4`
 
 ### Installation
 
