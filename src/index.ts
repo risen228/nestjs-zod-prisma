@@ -2,7 +2,11 @@ import { generatorHandler } from '@prisma/generator-helper'
 import { Project } from 'ts-morph'
 import { SemicolonPreference } from 'typescript'
 import { configSchema, PrismaOptions } from './config'
-import { populateModelFile, generateBarrelFile } from './generator'
+import {
+  populateModelFile,
+  generateBarrelFile,
+  generateEnumsFile,
+} from './generator'
 
 const { version } = require('../package.json')
 
@@ -18,6 +22,7 @@ generatorHandler({
     const project = new Project()
 
     const models = options.dmmf.datamodel.models
+    const enums = options.dmmf.datamodel.enums
 
     const { schemaPath } = options
     const outputPath = options.generator.output!.value
@@ -67,6 +72,22 @@ generatorHandler({
         semicolons: SemicolonPreference.Remove,
       })
     })
+
+    if (enums.length > 0) {
+      const enumsFile = project.createSourceFile(
+        `${outputPath}/enums.ts`,
+        {},
+        { overwrite: true }
+      )
+
+      generateEnumsFile(enums, enumsFile)
+
+      enumsFile.formatText({
+        indentSize: 2,
+        convertTabsToSpaces: true,
+        semicolons: SemicolonPreference.Remove,
+      })
+    }
 
     return project.save()
   },

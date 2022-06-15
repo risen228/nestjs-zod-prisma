@@ -4,7 +4,11 @@ import { readFile } from 'fs-extra'
 import { Project } from 'ts-morph'
 import { SemicolonPreference } from 'typescript'
 import { configSchema, PrismaOptions } from '../../config'
-import { populateModelFile, generateBarrelFile } from '../../generator'
+import {
+  populateModelFile,
+  generateBarrelFile,
+  generateEnumsFile,
+} from '../../generator'
 
 jest.setTimeout(10000)
 
@@ -67,6 +71,22 @@ const ftForDir = (dir: string) => async () => {
   const actualIndexContents = await readFile(`${actualDir}/index.ts`, 'utf-8')
 
   expect(actualIndexContents).toMatchSnapshot(`${dir} - Index file`)
+
+  if (dmmf.datamodel.enums.length > 0) {
+    const enumsFile = project.createSourceFile(
+      `${actualDir}/enums.ts`,
+      {},
+      { overwrite: true }
+    )
+
+    generateEnumsFile(dmmf.datamodel.enums, enumsFile)
+
+    enumsFile.formatText({
+      indentSize: 2,
+      convertTabsToSpaces: true,
+      semicolons: SemicolonPreference.Remove,
+    })
+  }
 
   await Promise.all(
     dmmf.datamodel.models.map(async (model) => {
