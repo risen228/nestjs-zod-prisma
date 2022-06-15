@@ -5,33 +5,114 @@ on:
     types: [published]
 
 jobs:
-  publish-npm:
+  get-meta:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout to tag
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.release.tag_name }}
+          fetch-depth: 0
+
+      - name: Parse version from tag
+        id: version 
+        uses: release-kit/semver@v1
+
+      - name: Get branch name
+        id: branch-name
+        run: echo "::set-output name=value::${{ steps.version.outputs.prerelease != null && 'release/${{ steps.version.outputs.prerelease }}' || 'release/latest' }}"
+    
+      - name: Check branch existence
+        id: branch-exists
+        run: echo "::set-output name=flag::$(git branch -a | egrep "remotes/origin/${{ steps.branch-name.outputs.value }}$" | wc -l)"
+    
+    outputs:
+      tag: ${{ github.event.release.tag_name }}
+      prerelease: ${{ steps.version.outputs.prerelease }}
+      full-version: ${{ steps.version.outputs.full }}
+      branch: ${{ steps.branch-name.outputs.value }}
+      branch-exists: ${{ steps.branch-exists.outputs.flag == '1' }}
+
+  sync-and-release:
+    runs-on: ubuntu-latest
+    needs: get-meta
+    if: needs.get-meta.outputs.branch == 'release/latest'
+    steps:
+      - name: Setup git
+        run: |
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "<>"
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Create branch
+        if: ${{ needs.get-meta.outputs.branch-exists == 'false' }}
+        run: |
+          git checkout -b ${{ needs.get-meta.outputs.branch }}
+          git push -u origin ${{ needs.get-meta.outputs.branch }}
+
+      - name: Checkout branch
+        if: ${{ needs.get-meta.outputs.branch-exists == 'true' }}
+        run: git checkout ${{ needs.get-meta.outputs.branch }} 
+
+      - name: Override branch using tag HEAD
+        run: git reset --hard ${{ needs.get-meta.outputs.tag }}
+
+      - name: Push to protected branch
+        uses: CasperWA/push-protected@v2
+        env:
+          TOKEN: ${{ secrets.FULL_ACCESS_GITHUB_TOKEN }}
+        if: ${{ env.TOKEN != '' }}
+        with:
+          token: ${{ secrets.FULL_ACCESS_GITHUB_TOKEN }}
+          branch: ${{ needs.get-meta.outputs.branch }}
+          tags: true
+          force: true
+          unprotect_reviews: true
+  
+      - name: Push to unprotected branch
+        env:
+          TOKEN: ${{ secrets.FULL_ACCESS_GITHUB_TOKEN }}
+        if: ${{ env.TOKEN == '' }}
+        run: git push --tags --force
+
+  release:
+    runs-on: ubuntu-latest
+    needs: get-meta
+    steps:
+      - name: Checkout to tag
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.release.tag_name }}
+
       - uses: actions/setup-node@v1
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: yarn install --frozen-lockfile
-      - run: yarn test
-      - run: yarn build
 
-      - name: Extract version
-        id: version
-        uses: olegtarasov/get-tag@v2.1
-        with:
-          tagRegex: 'v(.*)'
+      - name: Build package
+        run: |
+          yarn install --frozen-lockfile
+          yarn build
+          yarn test
 
-      - name: Set version from release
+      - name: Set version in package.json
         uses: reedyuk/npm-version@1.0.1
         with:
-          version: ${{ steps.version.outputs.tag }}
+          version: ${{ needs.get-meta.outputs.full-version }}
 
       - name: Create NPM config
         run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Publish to NPM
+      - name: Publish latest
+        if: ${{ needs.get-meta.outputs.prerelease == '' }}
         run: npm publish
+
+      - name: Publish RC
+        if: ${{ needs.get-meta.outputs.prerelease != '' }}
+        run: npm publish --tag ${{ needs.get-meta.outputs.prerelease }}

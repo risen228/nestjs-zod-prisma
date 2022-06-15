@@ -2,17 +2,24 @@ name: Test and Build
 
 on:
   push:
-    branches: [main]
+    branches: ['main']
+  pull_request:
+    branches: ['main', 'release/alpha', 'release/beta', 'release/next']
 
 jobs:
   test-and-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
+
       - uses: actions/setup-node@v1
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: yarn install --frozen-lockfile
-      - run: yarn test
-      - run: yarn build
+
+      - name: Test and build
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          yarn install --frozen-lockfile
+          yarn build
+          yarn test
