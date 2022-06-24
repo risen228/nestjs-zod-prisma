@@ -11,6 +11,8 @@ export const writeArray = (
 export const useModelNames = ({
   modelCase,
   modelSuffix,
+  dtoSuffix,
+  dtoCase,
   relationModel,
 }: Config) => {
   const formatModelName = (name: string, prefix = '') => {
@@ -21,9 +23,18 @@ export const useModelNames = ({
     return `${prefix}${result}${modelSuffix}`
   }
 
+  const formatDtoName = (name: string) => {
+    let result = name
+    if (dtoCase === 'camelCase') {
+      result = result.slice(0, 1).toLowerCase() + result.slice(1)
+    }
+    return `${result}${dtoSuffix}`
+  }
+
   return {
     modelName: (name: string) =>
       formatModelName(name, relationModel === 'default' ? '_' : ''),
+    dtoName: (name: string) => formatDtoName(name),
     relatedModelName: (
       name: string | DMMF.SchemaEnum | DMMF.OutputType | DMMF.SchemaArg
     ) =>

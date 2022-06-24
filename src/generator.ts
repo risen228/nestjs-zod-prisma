@@ -18,7 +18,13 @@ export const writeImportsForModel = (
   { schemaPath, outputPath }: PrismaOptions
 ) => {
   const { relatedModelName } = useModelNames(config)
+
   const importList: ImportDeclarationStructure[] = [
+    {
+      kind: StructureKind.ImportDeclaration,
+      namedImports: ['createZodDto'],
+      moduleSpecifier: 'nestjs-zod',
+    },
     {
       kind: StructureKind.ImportDeclaration,
       namespaceImport: 'z',
@@ -145,6 +151,21 @@ export const generateSchemaForModel = (
   })
 }
 
+export const generateDto = (
+  model: DMMF.Model,
+  sourceFile: SourceFile,
+  config: Config
+) => {
+  const { modelName, dtoName } = useModelNames(config)
+
+  sourceFile.addClass({
+    name: dtoName(model.name),
+    isExported: true,
+    leadingTrivia: (writer) => writer.blankLineIfLastNot(),
+    extends: `createZodDto(${modelName(model.name)})`,
+  })
+}
+
 export const generateRelatedSchemaForModel = (
   model: DMMF.Model,
   sourceFile: SourceFile,
@@ -222,6 +243,7 @@ export const populateModelFile = (
   writeImportsForModel(model, sourceFile, config, prismaOptions)
   writeTypeSpecificSchemas(model, sourceFile, config, prismaOptions)
   generateSchemaForModel(model, sourceFile, config, prismaOptions)
+  generateDto(model, sourceFile, config)
   if (needsRelatedModel(model, config))
     generateRelatedSchemaForModel(model, sourceFile, config, prismaOptions)
 }

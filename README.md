@@ -76,6 +76,8 @@ To work better with `nestjs-zod`, this library provides a little different API f
 
 You can use `@z.string().etc()` for specifying different `nestjs-zod/z` schemas, `@z&.something().etc()` for applying a new methods on the schema and `@z.from(imports.MyPasswordSchema)` for using your own schemas.
 
+Also, this library generates DTOs for better NestJS integration. It's done using `createZodDto` from `nestjs-zod`.
+
 And we still support the JSDoc comments.
 
 ### Built With
@@ -119,6 +121,11 @@ To get a local copy up and running follow these simple steps.
       // modelCase             = "camelCase" // Output models using camel case (ex. userModel, postModel)
 
       modelSuffix              = "Model" // (default) Suffix to apply to your prisma models when naming Zod schemas
+
+      dtoCase                = "PascalCase" // (default) Output DTOs using pascal case (ex. UserDto, PostDto)
+      // dtoCase             = "camelCase" // Output DTOs using camel case (ex. userDto, postDto)
+
+      dtoSuffix              = "Dto" // (default) Suffix to apply to your prisma models when naming DTOs
 
       // useDecimalJs          = false // (default) represent the prisma Decimal type using as a JS number
       useDecimalJs             = true // represent the prisma Decimal type using Decimal.js (as Prisma does)
