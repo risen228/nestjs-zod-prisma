@@ -131,4 +131,5 @@ describe('Functional Tests', () => {
   test('JSON', ftForDir('json'))
   test('Optional fields', ftForDir('optional'))
   test('Config Import', ftForDir('config-import'))
+  test('Config Without Dto', ftForDir('config-no-dto'))
 })
