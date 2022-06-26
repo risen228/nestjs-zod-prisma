@@ -117,6 +117,8 @@ To get a local copy up and running follow these simple steps.
       // relationModel         = "default" // Do not export model without relations.
       // relationModel         = false // Do not generate related model
 
+      generateDto              = true // (default) Generate DTOs for NestJS
+
       modelCase                = "PascalCase" // (default) Output models using pascal case (ex. UserModel, PostModel)
       // modelCase             = "camelCase" // Output models using camel case (ex. userModel, postModel)
 
