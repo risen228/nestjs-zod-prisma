@@ -1,0 +1,25 @@
+datasource db {
+  provider = "postgresql"
+  url      = ""
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = ".client"
+}
+
+generator zod {
+  provider    = "nestjs-zod-prisma"
+  output      = "../actual/"
+  generateDto = false
+}
+
+model Document {
+  id       String  @id @default(cuid())
+  filename String  @unique
+  author   String
+  contents String
+
+  created DateTime @default(now())
+  updated DateTime @default(now())
+}

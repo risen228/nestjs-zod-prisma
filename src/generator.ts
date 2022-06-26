@@ -22,15 +22,18 @@ export const writeImportsForModel = (
   const importList: ImportDeclarationStructure[] = [
     {
       kind: StructureKind.ImportDeclaration,
-      namedImports: ['createZodDto'],
-      moduleSpecifier: 'nestjs-zod',
-    },
-    {
-      kind: StructureKind.ImportDeclaration,
       namespaceImport: 'z',
       moduleSpecifier: 'nestjs-zod/z',
     },
   ]
+
+  if (config.generateDto) {
+    importList.push({
+      kind: StructureKind.ImportDeclaration,
+      namedImports: ['createZodDto'],
+      moduleSpecifier: 'nestjs-zod',
+    })
+  }
 
   if (config.imports) {
     importList.push({
@@ -243,7 +246,7 @@ export const populateModelFile = (
   writeImportsForModel(model, sourceFile, config, prismaOptions)
   writeTypeSpecificSchemas(model, sourceFile, config, prismaOptions)
   generateSchemaForModel(model, sourceFile, config, prismaOptions)
-  generateDto(model, sourceFile, config)
+  if (config.generateDto) generateDto(model, sourceFile, config)
   if (needsRelatedModel(model, config))
     generateRelatedSchemaForModel(model, sourceFile, config, prismaOptions)
 }
