@@ -9,7 +9,7 @@ export * from \\"./spreadsheet\\"
 
 exports[`Functional Tests Basic: basic - document 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 
 export const DocumentModel = z.object({
   id: z.string(),
@@ -27,7 +27,7 @@ export class DocumentDto extends createZodDto(DocumentModel) {
 
 exports[`Functional Tests Basic: basic - presentation 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 
 export const PresentationModel = z.object({
   id: z.string(),
@@ -45,7 +45,7 @@ export class PresentationDto extends createZodDto(PresentationModel) {
 
 exports[`Functional Tests Basic: basic - spreadsheet 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 
 export const SpreadsheetModel = z.object({
   id: z.string(),
@@ -68,7 +68,7 @@ exports[`Functional Tests Config Import: config-import - Index file 1`] = `
 
 exports[`Functional Tests Config Import: config-import - document 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 import * as imports from \\"../prisma/zod-utils\\"
 
 export const DocumentModel = z.object({
@@ -113,7 +113,7 @@ export * from \\"./post\\"
 
 exports[`Functional Tests Config: config - post 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 import { CompleteUser, userSchema } from \\"./index\\"
 
 export const _postSchema = z.object({
@@ -143,7 +143,7 @@ export const postSchema: z.ZodSchema<CompletePost> = z.lazy(() => _postSchema.ex
 
 exports[`Functional Tests Config: config - user 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 import { CompletePost, postSchema } from \\"./index\\"
 
 export const _userSchema = z.object({
@@ -177,7 +177,7 @@ exports[`Functional Tests Different Client Path: different-client-path - Index f
 
 exports[`Functional Tests Different Client Path: different-client-path - document 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 
 export const DocumentModel = z.object({
   id: z.string(),
@@ -200,7 +200,7 @@ exports[`Functional Tests Docs: docs - Index file 1`] = `
 
 exports[`Functional Tests Docs: docs - post 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 
 export const PostModel = z.object({
   /**
@@ -232,7 +232,7 @@ export * from \\"./spreadsheet\\"
 
 exports[`Functional Tests Imports: imports - document 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 import { Status } from \\"./enums\\"
 
 export const DocumentModel = z.object({
@@ -252,7 +252,7 @@ export class DocumentDto extends createZodDto(DocumentModel) {
 
 exports[`Functional Tests Imports: imports - presentation 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 import { CompleteSpreadsheet, RelatedSpreadsheetModel } from \\"./index\\"
 
 export const PresentationModel = z.object({
@@ -284,7 +284,7 @@ export const RelatedPresentationModel: z.ZodSchema<CompletePresentation> = z.laz
 
 exports[`Functional Tests Imports: imports - spreadsheet 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 import { CompletePresentation, RelatedPresentationModel } from \\"./index\\"
 
 export const SpreadsheetModel = z.object({
@@ -322,7 +322,7 @@ export * from \\"./post\\"
 
 exports[`Functional Tests JSON: json - post 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 import { CompleteUser, RelatedUserModel } from \\"./index\\"
 
 export const PostModel = z.object({
@@ -350,7 +350,7 @@ export const RelatedPostModel: z.ZodSchema<CompletePost> = z.lazy(() => PostMode
 
 exports[`Functional Tests JSON: json - user 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 import { CompletePost, RelatedPostModel } from \\"./index\\"
 
 export const UserModel = z.object({
@@ -384,7 +384,7 @@ export * from \\"./post\\"
 
 exports[`Functional Tests Optional fields: optional - post 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 import { CompleteUser, RelatedUserModel } from \\"./index\\"
 
 export const PostModel = z.object({
@@ -412,7 +412,7 @@ export const RelatedPostModel: z.ZodSchema<CompletePost> = z.lazy(() => PostMode
 
 exports[`Functional Tests Optional fields: optional - user 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 import { CompletePost, RelatedPostModel } from \\"./index\\"
 
 export const UserModel = z.object({
@@ -445,7 +445,7 @@ exports[`Functional Tests Recursive Schema: recursive - Index file 1`] = `
 
 exports[`Functional Tests Recursive Schema: recursive - comment 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 
 export const CommentModel = z.object({
   id: z.string(),
@@ -482,7 +482,7 @@ export * from \\"./keychain\\"
 
 exports[`Functional Tests Relation - 1 to 1: relation-1to1 - keychain 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 import { CompleteUser, RelatedUserModel } from \\"./index\\"
 
 export const KeychainModel = z.object({
@@ -509,7 +509,7 @@ export const RelatedKeychainModel: z.ZodSchema<CompleteKeychain> = z.lazy(() => 
 
 exports[`Functional Tests Relation - 1 to 1: relation-1to1 - user 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 import { CompleteKeychain, RelatedKeychainModel } from \\"./index\\"
 
 export const UserModel = z.object({
@@ -542,7 +542,7 @@ export * from \\"./post\\"
 
 exports[`Functional Tests relationModel = false: relation-false - post 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 
 export const PostModel = z.object({
   id: z.string(),
@@ -558,7 +558,7 @@ export class PostDto extends createZodDto(PostModel) {
 
 exports[`Functional Tests relationModel = false: relation-false - user 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
-import { createZodDto } from \\"nestjs-zod\\"
+import { createZodDto } from \\"nestjs-zod/dto\\"
 
 export const UserModel = z.object({
   id: z.string(),

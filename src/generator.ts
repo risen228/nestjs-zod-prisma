@@ -31,7 +31,7 @@ export const writeImportsForModel = (
     importList.push({
       kind: StructureKind.ImportDeclaration,
       namedImports: ['createZodDto'],
-      moduleSpecifier: 'nestjs-zod',
+      moduleSpecifier: 'nestjs-zod/dto',
     })
   }
 

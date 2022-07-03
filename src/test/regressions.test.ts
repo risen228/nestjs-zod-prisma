@@ -35,7 +35,7 @@ describe('Regression Tests', () => {
     writeImportsForModel(model, testFile, config, prismaOptions)
 
     expect(testFile.print()).toBe(
-      'import * as z from "nestjs-zod/z";\nimport { createZodDto } from "nestjs-zod";\nimport { UserType } from "./enums";\n'
+      'import * as z from "nestjs-zod/z";\nimport { createZodDto } from "nestjs-zod/dto";\nimport { UserType } from "./enums";\n'
     )
   })
 })
