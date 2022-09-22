@@ -4,13 +4,13 @@
 	"description": "A Prisma generator that creates Zod schemas for all of your models",
 	"license": "MIT",
 	"author": "Evgeny Zakharov",
-	"homepage": "https://github.com/risenforces/nestjs-zod-prisma#readme",
+	"homepage": "https://github.com/riccardo-ditosto-gellify/nestjs-zod-prisma#readme",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/risenforces/nestjs-zod-prisma.git"
+		"url": "https://github.com/riccardo-ditosto-gellify/nestjs-zod-prisma.git"
 	},
 	"bugs": {
-		"url": "https://github.com/risenforces/nestjs-zod-prisma/issues"
+		"url": "https://github.com/riccardo-ditosto-gellify/nestjs-zod-prisma/issues"
 	},
 	"main": "dist/index.js",
 	"module": "dist/nestjs-zod-prisma.esm.js",
@@ -40,7 +40,7 @@
 		"testEnvironment": "node"
 	},
 	"dependencies": {
-		"@prisma/generator-helper": "~3.8.1",
+		"@prisma/generator-helper": "^4.3.1",
 		"parenthesis": "^3.1.8",
 		"ts-morph": "^13.0.2",
 		"zod": "^3.17.3"
@@ -51,8 +51,8 @@
 		"@eslint-kit/eslint-config-patch": "^1.0.0",
 		"@eslint-kit/eslint-config-prettier": "^5.0.0",
 		"@eslint-kit/eslint-config-typescript": "^5.2.0",
-		"@prisma/client": "~3.8.1",
-		"@prisma/sdk": "~3.7.0",
+		"@prisma/client": "^4.3.1",
+		"@prisma/sdk": "^4.0.0",
 		"@tsconfig/recommended": "^1.0.1",
 		"@types/fs-extra": "^9.0.13",
 		"@typescript-eslint/parser": "^5.25.0",
@@ -64,14 +64,14 @@
 		"jest-mock-extended": "^2.0.4",
 		"nestjs-zod": "^1.1.0",
 		"prettier": "2.3.0",
-		"prisma": "^3.4.2",
+		"prisma": "^4.3.1",
 		"tslib": "^2.3.1",
 		"typescript": "^4.5.4"
 	},
 	"peerDependencies": {
 		"decimal.js": "^10.0.0",
 		"nestjs-zod": "^1.1.0",
-		"prisma": "^3.0.0"
+		"prisma": "^4.0.0"
 	},
 	"peerDependenciesMeta": {
 		"decimal.js": {
