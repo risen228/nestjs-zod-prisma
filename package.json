@@ -1,5 +1,5 @@
 {
-	"name": "nestjs-zod-prisma",
+	"name": "@riccardo-ditosto-gellify/nestjs-zod-prisma",
 	"version": "0.0.0-set-by-ci",
 	"description": "A Prisma generator that creates Zod schemas for all of your models",
 	"license": "MIT",
