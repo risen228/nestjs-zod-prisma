@@ -71,7 +71,7 @@
 	"peerDependencies": {
 		"decimal.js": "^10.0.0",
 		"nestjs-zod": "^1.1.0",
-		"prisma": "^4.0.0"
+		"prisma": ">=4.0.0"
 	},
 	"peerDependenciesMeta": {
 		"decimal.js": {
