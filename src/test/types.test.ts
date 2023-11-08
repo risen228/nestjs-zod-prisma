@@ -24,7 +24,7 @@ describe('types Package', () => {
 
     const constructor = getZodConstructor(field)
 
-    expect(constructor).toBe('z.string().min(8).max(64).email().nullish()')
+    expect(constructor).toBe('z.string().min(8).max(64).email().nullable()')
   })
 
   test('append to default type', () => {
@@ -45,7 +45,7 @@ describe('types Package', () => {
 
     const constructor = getZodConstructor(field)
 
-    expect(constructor).toBe('z.string().email().array().nullish()')
+    expect(constructor).toBe('z.string().email().array().nullable()')
   })
 
   test('regression - unknown type', () => {

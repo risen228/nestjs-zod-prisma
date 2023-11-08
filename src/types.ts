@@ -56,7 +56,7 @@ export const getZodConstructor = (
   }
 
   if (!field.isRequired && field.type !== 'Json') {
-    schema += '.nullish()'
+    schema += '.nullable()'
   }
 
   return schema
