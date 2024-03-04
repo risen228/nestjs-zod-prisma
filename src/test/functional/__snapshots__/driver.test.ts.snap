@@ -114,7 +114,7 @@ export * from \\"./post\\"
 exports[`Functional Tests Config: config - post 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
 import { createZodDto } from \\"nestjs-zod/dto\\"
-import { CompleteUser, userSchema } from \\"./index\\"
+import { type CompleteUser, userSchema } from \\"./index\\"
 
 export const _postSchema = z.object({
   id: z.string(),
@@ -144,7 +144,7 @@ export const postSchema: z.ZodSchema<CompletePost> = z.lazy(() => _postSchema.ex
 exports[`Functional Tests Config: config - user 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
 import { createZodDto } from \\"nestjs-zod/dto\\"
-import { CompletePost, postSchema } from \\"./index\\"
+import { type CompletePost, postSchema } from \\"./index\\"
 
 export const _userSchema = z.object({
   id: z.string(),
@@ -253,7 +253,7 @@ export class DocumentDto extends createZodDto(DocumentModel) {
 exports[`Functional Tests Imports: imports - presentation 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
 import { createZodDto } from \\"nestjs-zod/dto\\"
-import { CompleteSpreadsheet, RelatedSpreadsheetModel } from \\"./index\\"
+import { type CompleteSpreadsheet, RelatedSpreadsheetModel } from \\"./index\\"
 
 export const PresentationModel = z.object({
   id: z.string(),
@@ -285,7 +285,7 @@ export const RelatedPresentationModel: z.ZodSchema<CompletePresentation> = z.laz
 exports[`Functional Tests Imports: imports - spreadsheet 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
 import { createZodDto } from \\"nestjs-zod/dto\\"
-import { CompletePresentation, RelatedPresentationModel } from \\"./index\\"
+import { type CompletePresentation, RelatedPresentationModel } from \\"./index\\"
 
 export const SpreadsheetModel = z.object({
   id: z.string(),
@@ -323,7 +323,7 @@ export * from \\"./post\\"
 exports[`Functional Tests JSON: json - post 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
 import { createZodDto } from \\"nestjs-zod/dto\\"
-import { CompleteUser, RelatedUserModel } from \\"./index\\"
+import { type CompleteUser, RelatedUserModel } from \\"./index\\"
 
 export const PostModel = z.object({
   id: z.number().int(),
@@ -351,7 +351,7 @@ export const RelatedPostModel: z.ZodSchema<CompletePost> = z.lazy(() => PostMode
 exports[`Functional Tests JSON: json - user 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
 import { createZodDto } from \\"nestjs-zod/dto\\"
-import { CompletePost, RelatedPostModel } from \\"./index\\"
+import { type CompletePost, RelatedPostModel } from \\"./index\\"
 
 export const UserModel = z.object({
   id: z.number().int(),
@@ -385,7 +385,7 @@ export * from \\"./post\\"
 exports[`Functional Tests Optional fields: optional - post 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
 import { createZodDto } from \\"nestjs-zod/dto\\"
-import { CompleteUser, RelatedUserModel } from \\"./index\\"
+import { type CompleteUser, RelatedUserModel } from \\"./index\\"
 
 export const PostModel = z.object({
   id: z.number().int(),
@@ -413,7 +413,7 @@ export const RelatedPostModel: z.ZodSchema<CompletePost> = z.lazy(() => PostMode
 exports[`Functional Tests Optional fields: optional - user 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
 import { createZodDto } from \\"nestjs-zod/dto\\"
-import { CompletePost, RelatedPostModel } from \\"./index\\"
+import { type CompletePost, RelatedPostModel } from \\"./index\\"
 
 export const UserModel = z.object({
   id: z.number().int(),
@@ -483,7 +483,7 @@ export * from \\"./keychain\\"
 exports[`Functional Tests Relation - 1 to 1: relation-1to1 - keychain 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
 import { createZodDto } from \\"nestjs-zod/dto\\"
-import { CompleteUser, RelatedUserModel } from \\"./index\\"
+import { type CompleteUser, RelatedUserModel } from \\"./index\\"
 
 export const KeychainModel = z.object({
   userID: z.string(),
@@ -510,7 +510,7 @@ export const RelatedKeychainModel: z.ZodSchema<CompleteKeychain> = z.lazy(() => 
 exports[`Functional Tests Relation - 1 to 1: relation-1to1 - user 1`] = `
 "import * as z from \\"nestjs-zod/z\\"
 import { createZodDto } from \\"nestjs-zod/dto\\"
-import { CompleteKeychain, RelatedKeychainModel } from \\"./index\\"
+import { type CompleteKeychain, RelatedKeychainModel } from \\"./index\\"
 
 export const UserModel = z.object({
   id: z.string(),

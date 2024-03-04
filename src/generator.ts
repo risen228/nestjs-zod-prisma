@@ -78,7 +78,7 @@ export const writeImportsForModel = (
         namedImports: Array.from(
           new Set(
             filteredFields.flatMap((f) => [
-              `Complete${f.type}`,
+              `type Complete${f.type}`,
               relatedModelName(f.type),
             ])
           )
